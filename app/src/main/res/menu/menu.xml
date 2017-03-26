@@ -38,7 +38,7 @@
             android:id="@+id/chicken"
             android:title="치킨선택"></item>
         <item
-            android:title="스파게치"
+            android:title="스파게티"
             android:id="@+id/spaghetti"></item>
     </group>
 </menu>

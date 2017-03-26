@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -17,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     ImageView imageView;
 
-    RelativeLayout layout;
+    RelativeLayout layout1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +30,13 @@ public class MainActivity extends AppCompatActivity {
 
         imageView = (ImageView) findViewById(R.id.image1);
 
-        layout = (RelativeLayout) findViewById(R.id.relativeLayout);
+        layout1 = (RelativeLayout) findViewById(R.id.relativeLayout);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -42,15 +44,15 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.mnuRed:
-                layout.setBackgroundColor(Color.RED);
+                layout1.setBackgroundColor(Color.rgb(255,0,0));
                 break;
 
             case R.id.mnuBlue:
-                layout.setBackgroundColor(Color.BLUE);
+                layout1.setBackgroundColor(Color.rgb(0,0,255));
                 break;
 
             case R.id.mnuYellow:
-                layout.setBackgroundColor(Color.YELLOW);
+                layout1.setBackgroundColor(Color.rgb(255,255,0));
                 break;
 
             case R.id.item_rotation:
@@ -76,22 +78,22 @@ public class MainActivity extends AppCompatActivity {
                     item.setChecked(false);
                     imageView.setScaleX(1);
                     imageView.setScaleY(1);
-
                 }else{
                     item.setChecked(true);
                     imageView.setScaleX(2);
                     imageView.setScaleY(2);
-
                 }
                 break;
 
             case R.id.chicken:
                 item.setChecked(true);
+                textView.setText("겁나 맛있는 치킨");
                 imageView.setImageResource(R.drawable.chicken);
                 break;
 
             case R.id.spaghetti:
                 item.setChecked(true);
+                textView.setText("새콤한 스파게티");
                 imageView.setImageResource(R.drawable.spaghetti);
                 break;
         }
